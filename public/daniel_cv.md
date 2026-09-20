@@ -47,7 +47,7 @@ June-July 2019
 - Built a coding-agent platform as sole developer: CLI, web UI, HTTP API, MCP server and Python SDK on a shared runtime and tool layer.
 - Implemented context compaction, resumable session branching and multi-agent orchestration; backed by 1,400+ tests, static type checks and Linux/Windows CI.
 
-### [Ionisium](https://ionisium.es) - Django, PostgreSQL, HTMX, Celery, AWS
+### [Ionisium](https://ionisium.es) - Django, PostgreSQL, HTMX, Celery, AWS, Pulumi
 - Built a document distribution SaaS used by Spanish film companies including CaballoFilms, handling 250,000+ document deliveries across six client projects.
 
 ### [TypedJinja](https://github.com/dakixr/TypedJinja) - Python, TypeScript, LSP
@@ -59,7 +59,7 @@ June-July 2019
 ## Technical Skills
 
 - **Languages & web:** Python, SQL, JavaScript, Bash, Django, HTMX, REST APIs
-- **Data & infrastructure:** PostgreSQL, Pandas, Polars, AWS, Docker, Terraform, Pulumi, Git, CI/CD
+- **Data & infrastructure:** PostgreSQL, Pandas, Polars, AWS, Docker, Pulumi, Git, CI/CD
 - **Agent engineering:** Agent harnesses, context management, multi-agent orchestration, MCP
 - **Spoken languages:** English (fluent), Spanish (native)
 

@@ -29,7 +29,7 @@ export const projects: Project[] = [
     {
       title: 'Ionisium',
       slug: 'ionisium',
-      details: ['Built the Django application and delivery workflows for personalized document distribution.', 'Used HTMX and htpy for the web interface, Celery for background work and AWS for document processing and delivery.'],
+      details: ['Built the Django application and delivery workflows for personalized document distribution.', 'Used HTMX and htpy for the web interface, Celery for background work and AWS for document processing and delivery. Managed infrastructure with Pulumi.'],
       description: 'Document distribution SaaS used by Spanish film companies including CaballoFilms. Handled 250,000+ document deliveries across six client projects, with personalized watermarking and tracking.',
       link: 'https://ionisium.es',
       image: '/projects/ionisium.jpg',
