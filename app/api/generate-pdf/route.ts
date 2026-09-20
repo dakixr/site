@@ -103,23 +103,13 @@ async function generatePdfFromMarkdown(markdown: string): Promise<Uint8Array> {
 }
 
 export async function GET() {
-  try {
-    const mdFilePath = path.join(process.cwd(), 'public', 'daniel_cv.md');
-    const markdownContent = await fs.readFile(mdFilePath, 'utf-8');
-    const pdfBuffer = await generatePdfFromMarkdown(markdownContent);
-    return new NextResponse(pdfBuffer, {
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="Daniel Rodríguez Mariblanca - CV.pdf"',
-      },
-    });
-  } catch (error) {
-    console.error('Error generating PDF:', error);
-    return NextResponse.json(
-      { error: 'Failed to generate PDF' },
-      { status: 500 }
-    );
-  }
+  const pdf = await fs.readFile(path.join(process.cwd(), 'public', 'daniel_cv.pdf'));
+  return new NextResponse(pdf, {
+    headers: {
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; filename="Daniel-Rodriguez-Mariblanca-CV.pdf"',
+    },
+  });
 }
 
 export async function POST(request: NextRequest) {

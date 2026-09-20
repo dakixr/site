@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+
 
 interface Experience {
   title: string;
@@ -16,36 +16,44 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    title: 'Senior Consultant', company: 'Deloitte', location: 'Luxembourg', period: 'April 2026 to present',
+    missions: [{ name: 'Technical leadership & regulatory reporting', description: [
+      'Automate regulatory reporting for major clients, reducing report preparation from several hours to minutes.',
+      'Lead three developers: set technical direction, assign work and coordinate delivery while contributing code.',
+      'Mentor developers on best practices, uphold code quality and improve development workflows.'
+    ], techStack: ['Python', 'Regulatory reporting', 'Technical leadership'] }]
+  },
+  {
     title: 'Senior Software Engineer',
     company: 'TMC',
     location: 'Luxembourg',
-    period: '2023-Present',
+    period: 'March 2023 to March 2026',
     missions: [
       {
         name: 'Deloitte (second mission)',
         description: [
-          'Developed Sirius - DAG Pipelines, a Python framework for data transformation leveraging metaprogramming',
-          'Built a declarative DSL for decision trees, empowering non-engineers to update client logic',
+          'Developed Sirius, a Python framework for institutional data transformation with automated documentation',
+          'Built a decision-tree DSL so non-engineers could update client logic',
           'Delivered a VS Code extension featuring live diagrams, code actions, and CLI tools',
-          'Established comprehensive testing strategy with unit tests and snapshot testing'
+          'Established unit and snapshot testing to prevent regressions across framework updates'
         ],
         techStack: ['Python', 'VS Code Extension', 'Metaprogramming', 'Testing']
       },
       {
         name: 'Bank of Luxembourg Investments (BLI)',
         description: [
-          'Automated manual processes, saving 100+ hours per quarter and cutting error rate by 95%',
-          'Developed file-based querying system with indexing and cache for real-time data retrieval',
+          'Automated manual processes, saving 100+ hours per quarter',
+          'Replaced slow file scans with an indexed, cached query service, with monitoring, alerting and operational runbooks',
           'Built PDF mining and analysis tools for regulatory compliance',
-          'Created internal web tools to speed up daily workflows'
+          'Built internal tools with Django, HTMX and REST APIs'
         ],
         techStack: ['Python', 'Data Mining', 'Web Tools', 'Automation']
       },
       {
         name: 'Internal TMC Projects',
         description: [
-          'Built web app to convert unstructured CVs into standardized format, reducing onboarding time by >6x',
-          'Developed GenAI-driven meeting note system, saving 15 minutes per meeting for team members'
+          'Built a web application to convert unstructured CVs into a standardized format',
+          'Developed an AI-assisted meeting note system'
         ],
         techStack: ['GenAI', 'Web Development', 'Automation']
       },
@@ -55,7 +63,7 @@ const experiences: Experience[] = [
           'Engineered Stelar, a Python library to enrich investment portfolios with Duration and SCR',
           'Contributed to shared commons tools repository for code reusability',
           'Implemented Python ETL toolkit with configuration-driven data mapping',
-          'Integrated robust CI/CD and built-in test suites'
+          'Contributed CI/CD and test suites to the shared engineering tools'
         ],
         techStack: ['Python', 'ETL', 'CI/CD', 'Finance']
       }
@@ -65,146 +73,67 @@ const experiences: Experience[] = [
     title: 'Business Intelligence & Software Engineer',
     company: 'Amazon',
     location: 'Luxembourg',
-    period: '2022',
+    period: 'August 2022 to February 2023',
     missions: [
       {
         name: 'Operational Planning',
         description: [
           'Launched first ML forecasting solution for $60M+ operational plan',
           'Built new KPI tracking/warehousing tools for improved reporting',
-          'Spearheaded engineering initiatives for velocity and data quality'
+          'Operated analytics services with AWS CloudWatch logging, metrics and alerts'
         ],
         techStack: ['ML', 'AWS', 'Data Warehousing', 'KPIs']
       }
     ]
   },
   {
-    title: 'Full-Stack Software Engineer',
+    title: 'Business Intelligence & Software Engineer Intern', company: 'Amazon', location: 'Luxembourg', period: 'February to July 2022',
+    missions: [{ name: 'Analytics tools', description: ['Built KPI tracking and data warehousing tools for the team.'], techStack: ['Data warehousing', 'KPIs'] }]
+  },
+  {
+    title: 'Junior Full-Stack Software Engineer',
     company: 'Vector ITC Group / Santander Bank',
     location: 'Spain',
-    period: '2019',
+    period: 'June to July 2019',
     missions: [
       {
         name: 'Mobile Banking',
         description: [
           'Developed and deployed mobile app modules for Santander Bank',
-          'Focused on high user adoption and strong performance',
-          'Built secure backend systems supporting rapid development'
+          'Built secure backend systems within an Agile team'
         ],
         techStack: ['Java', 'Kotlin', 'Backend', 'Mobile']
       }
     ]
   }
+  ,{
+    title: 'IT Teacher', company: 'Fundación Alas', location: 'Spain', period: 'September 2017 to May 2019',
+    missions: [{ name: 'IT education', description: ['Taught IT fundamentals to more than 15 older adults and people with disabilities, adapting lessons to individual learning needs.'] }]
+  }
 ];
-
-interface ExperienceCardProps {
-  experience: Experience;
-}
-
-function ExperienceCard({ experience }: ExperienceCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
-    }
-  };
-
-  return (
-    <div
-      className={`bg-light dark:bg-dark p-6 cursor-pointer border border-dark-300 dark:border-light-300 focus:outline-none transition-all duration-200 ${
-        isExpanded ? 'border-dark dark:border-light' : ''
-      }`}
-      onClick={() => setIsExpanded(!isExpanded)}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="button"
-      aria-expanded={isExpanded}
-      aria-label={`${experience.company} - ${experience.title}, Press Enter to ${isExpanded ? 'collapse' : 'expand'}`}
-    >
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <h3 className="text-lg text-dark dark:text-light">
-            {experience.company}
-          </h3>
-          <p className="text-sm text-dark-500 dark:text-light-300">{experience.title}</p>
-        </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`h-5 w-5 text-dark dark:text-light transition-transform duration-200 ${
-            isExpanded ? 'rotate-180' : ''
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-
-      <div className="flex items-center gap-2 text-sm text-dark-500 dark:text-light-300">
-        <span>{experience.location}</span>
-        <span>•</span>
-        <span>{experience.period}</span>
-      </div>
-
-      {isExpanded && (
-        <div className="space-y-4 mt-4">
-          {experience.missions.map((mission, missionIndex) => (
-            <div key={missionIndex} className="border-t border-dark-300 dark:border-light-300 pt-3">
-              <h4 className="text-dark dark:text-light mb-2">
-                {mission.name}
-              </h4>
-              <ul className="space-y-1">
-                {mission.description.map((item, itemIndex) => (
-                  <li key={itemIndex} className="text-sm text-dark-500 dark:text-light-300 flex items-start">
-                    <span className="text-dark dark:text-light mr-2 mt-1">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              {mission.techStack && (
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {mission.techStack.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 border border-dark-300 dark:border-light-300 text-dark dark:text-light text-xs"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function Timeline() {
   return (
     <section id="experience" className="py-20 bg-light dark:bg-dark">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl text-dark dark:text-light mb-2">
-            Professional Experience
-          </h2>
-          <div className="h-px w-20 bg-dark dark:bg-light mx-auto mb-4" />
-          <p className="text-lg text-dark-500 dark:text-light-300 max-w-2xl mx-auto">
-            My journey through impactful roles and projects in software engineering.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={index}
-              experience={experience}
-            />
-          ))}
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl mb-10">Experience</h2>
+        <div className="space-y-12">
+          {experiences.map(experience => <article key={`${experience.company}-${experience.period}`} className="grid md:grid-cols-[240px_1fr] gap-5 md:gap-10 border-t border-dark-300 dark:border-light-300 pt-6">
+            <header>
+              <h3 className="text-xl mb-2">{experience.company}</h3>
+              <p className="text-sm text-dark-500 dark:text-light-300">{experience.period}</p>
+              <p className="text-sm text-dark-500 dark:text-light-300 mt-1">{experience.location}</p>
+            </header>
+            <div>
+              <h4 className="text-lg mb-5">{experience.title}</h4>
+              {experience.missions.map(mission => <div key={mission.name} className="mb-6 last:mb-0">
+                {experience.missions.length > 1 && <h5 className="mb-2">{mission.name}</h5>}
+                <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed text-dark-500 dark:text-light-300">
+                  {mission.description.map(item => <li key={item}>{item}</li>)}
+                </ul>
+              </div>)}
+            </div>
+          </article>)}
         </div>
       </div>
     </section>

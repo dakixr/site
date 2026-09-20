@@ -1,109 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import ProjectCard from './ProjectCard';
-
-type Project = {
-  title: string;
-  description: string;
-  /** Fallback single link (legacy) */
-  link?: string;
-  /** Preferred explicit links */
-  liveLink?: string;
-  githubLink?: string;
-  image: string;
-  technologies: string[];
-};
+import Link from 'next/link';
+import { projects } from '@/lib/projects';
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const projects: Project[] = [
-    {
-      title: 'AI Code Review',
-      description: 'AI code review toolset with GitHub PR integration (GitHub App) plus a standalone local CLI (built on OpenCode) for repo-agnostic reviews.',
-      liveLink: 'https://code-review.dakixr.dev/',
-      githubLink: 'https://github.com/dakixr/code-review',
-      image: '/projects/code-review.jpg',
-      technologies: ['Python', 'Django', 'Celery', 'HTMX', 'htpy', 'GitHub', 'GitHub App', 'OpenCode', 'LLM', 'Docker'],
-    },
-    {
-      title: 'OpenWhisper',
-      description: 'Hold-to-talk transcription for macOS using OpenAI Whisper API. Press Fn to talk, release to insert text. Tracks usage + cost. Native menubar app with live waveform.',
-      link: 'https://github.com/dakixr/open-whisper',
-      image: '/projects/openwhisper.svg',
-      technologies: ['Swift', 'macOS', 'OpenAI API', 'Whisper', 'Audio', 'Keychain', 'Accessibility'],
-    },
-    {
-      title: 'Ionisium',
-      description: 'SaaS platform for mass mailing communications with PDF watermarking, tracking, and delivery management via AWS Lambda.',
-      link: 'https://ionisium.es',
-      image: '/projects/ionisium.jpg',
-      technologies: ['Python', 'Django', 'HTMX', 'htpy', 'Celery', 'AWS', 'PostgreSQL', 'Docker', 'Pulumi'],
-    },
-    {
-      title: 'CostCompiler',
-      description: 'B2B web application for cost controlling communications, featuring Excel processing, data analysis, and automated reporting.',
-      link: 'https://costcompiler.com',
-      image: '/projects/costcompiler.jpg',
-      technologies: ['Python', 'Django', 'HTMX', 'htpy', 'Celery', 'Pandas', 'Polars', 'AWS', 'Docker'],
-    },
-    {
-      title: 'wt',
-      description: 'Git Worktree Toolkit - A CLI for managing git worktrees in feature-branch workflows with hooks, auto-setup, and PR integration.',
-      link: 'https://github.com/dakixr/wt',
-      image: '/projects/wt.jpg',
-      technologies: ['Python', 'Git', 'CLI', 'Worktrees', 'Developer Tools'],
-    },
-    {
-      title: 'ralph',
-      description: 'CLI harness for running LLM agents on PRD-driven tasks, automating development workflows with AI assistance.',
-      link: 'https://github.com/dakixr/ralph',
-      image: '/projects/ralph.jpg',
-      technologies: ['Python', 'LLM', 'CLI', 'AI Agents', 'Automation'],
-    },
-    {
-      title: 'xpyxl',
-      description: 'Create styled Excel reports with declarative Python. Tailwind-inspired utility classes for typography, colors, and layouts without manual coordinates.',
-      link: 'https://github.com/dakixr/xpyxl',
-      image: '/projects/xpyxl.jpg',
-      technologies: ['Python', 'Excel', 'openpyxl', 'xlsxwriter', 'Declarative', 'Reporting'],
-    },
-    {
-      title: 'htmx-extensions',
-      description: 'Lightweight HTMX extensions: smart loading indicators, file downloads, and programmatic history restoration. Consolidated collection of previously separate extensions (27+ combined stars). No build step required.',
-      link: 'https://github.com/dakixr/htmx-extensions',
-      image: '/projects/htmx-extensions.jpg',
-      technologies: ['JavaScript', 'HTMX', 'Extensions', 'Browser APIs', 'Loading states', 'History API'],
-    },
-    {
-      title: 'FormCraftSuite',
-      description: 'Toolkit for turning PDFs into structured, web-ready forms for data capture and workflows.',
-      link: 'https://github.com/dakixr/FormCraftSuite',
-      image: '/projects/formcraftsuite.jpg',
-      technologies: ['Python', 'PDF processing', 'Form generation', 'HTML', 'Web forms'],
-    },
-    {
-      title: 'TypedJinja',
-      description: 'Type safety for Jinja2 templates with 2 stars, bringing typed checks and editor hints to templating.',
-      link: 'https://github.com/dakixr/TypedJinja',
-      image: '/projects/typedjinja.jpg',
-      technologies: ['Python', 'Jinja2', 'Type checking', 'IDE support', 'Tooling'],
-    },
-    {
-      title: 'Hackathon-AXA',
-      description: 'AXA Hackathon winner with 1 star, a full-stack app built with JHipster and Spring Boot.',
-      link: 'https://github.com/dakixr/Hackathon-AXA',
-      image: '/projects/hackathon-axa.jpg',
-      technologies: ['JavaScript', 'JHipster', 'Spring Boot', 'Angular', 'Full-stack'],
-    },
-  ];
-
-  const allTechnologies = projects.flatMap((project) => project.technologies);
-
   const filteredProjects = projects.filter((project) => {
-    const matchesFilter = activeFilter === 'All' || project.technologies.includes(activeFilter);
     const matchesSearch =
       searchQuery === '' ||
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -111,18 +15,19 @@ export default function ProjectsSection() {
       project.technologies.some((tech) =>
         tech.toLowerCase().includes(searchQuery.toLowerCase())
       );
-    return matchesFilter && matchesSearch;
+    return matchesSearch;
   });
 
   return (
     <section id="projects" className="py-20 bg-light dark:bg-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-dark dark:text-light mb-2">My Projects</h2>
+          <h2 className="text-3xl font-bold text-dark dark:text-light mb-2">Projects</h2>
           <div className="h-1 bg-dark dark:bg-light mx-auto mb-4" />
           <p className="text-lg text-dark-600 dark:text-light-300 max-w-2xl mx-auto">
-            Explore my recent personal projects that showcase my technical skills and problem-solving abilities.
+            Coding agents, developer tools and applications I build and maintain.
           </p>
+          <a href="/projects.md" className="inline-block mt-4 text-sm underline underline-offset-4">Read project notes as Markdown</a>
         </div>
 
         <div className="mb-8 space-y-4">
@@ -144,9 +49,7 @@ export default function ProjectsSection() {
               key={index}
               className="border border-dark-300 dark:border-light-300 bg-light dark:bg-dark overflow-hidden"
             >
-              <div className="h-48 border-b border-dark-300 dark:border-light-300 flex items-center justify-center">
-                <div className="text-4xl font-bold text-dark dark:text-light">{project.title}</div>
-              </div>
+
               <div className="p-6">
                 <h3 className="text-xl font-bold text-dark dark:text-light mb-2">{project.title}</h3>
                 <p className="text-dark-500 dark:text-light-300 mb-4">{project.description}</p>
@@ -160,8 +63,9 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-{(project.liveLink || project.githubLink || project.link) && (
+                {(project.liveLink || project.githubLink || project.link || project.slug) && (
                   <div className="flex flex-wrap gap-4">
+                    {project.slug && <Link href={`/projects/${project.slug}`} className="underline underline-offset-4">Project details</Link>}
                     {(project.liveLink || (project.link && !project.link.includes('github.com') ? project.link : undefined)) && (
                       <a
                         href={project.liveLink || project.link}
@@ -203,13 +107,12 @@ export default function ProjectsSection() {
             </p>
             <button
               onClick={() => {
-                  setActiveFilter('All');
                   setSearchQuery('');
                 }}
-              aria-label="Clear all filters"
+              aria-label="Clear search"
               className="mt-4 px-6 py-2 border-2 border dark:border-light text-dark dark:text-light hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark"
             >
-              Clear filters
+              Clear search
             </button>
           </div>
         )}

@@ -12,8 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        dark: "#1a1a1a",
-        light: "#f5f5f5",
+        dark: { DEFAULT: "#1a1a1a", 100: "#e8e8e8", 200: "#d4d4d4", 300: "#b0b0b0", 500: "#555555", 600: "#444444" },
+        light: { DEFAULT: "#f5f5f5", 200: "#333333", 300: "#bcbcbc", 400: "#aaaaaa" },
       },
       fontFamily: {
         mono: ['"JetBrains Mono"', '"Fira Code"', '"Courier New"', 'monospace'],

@@ -28,9 +28,9 @@ export default function HomeClient() {
       <Navbar />
       <div id="main-content">
         <HeroSection />
+        <CVSection />
         <ProjectsSection />
         <SkillsSection />
-        <CVSection />
         <ContactSection />
         <Footer />
       </div>

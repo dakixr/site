@@ -10,11 +10,11 @@ export default function CVSection() {
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="flex flex-col items-center justify-center gap-4">
           <p className="text-center text-dark-500 dark:text-light-300">
-            Want to see my complete CV with education, achievements, and more?
+            Download the one-page CV or read it online.
           </p>
           <div className="flex gap-4 flex-wrap justify-center">
             <a
-              href="/api/generate-pdf"
+              href="/daniel_cv.pdf" download
               aria-label="Download CV as PDF"
               className="inline-flex items-center px-4 py-2 border-2 border-dark dark:border-light text-sm font-medium text-dark dark:text-light bg-light dark:bg-dark hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark focus:outline-none transition-all duration-200"
             >
@@ -31,7 +31,7 @@ export default function CVSection() {
               <svg className="mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
               </svg>
-              View Full CV
+              Read CV
             </a>
           </div>
         </div>

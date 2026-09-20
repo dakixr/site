@@ -58,7 +58,7 @@ export default function CVPage() {
               Back to Portfolio
             </Link>
             <a
-              href="/api/generate-pdf"
+              href="/daniel_cv.pdf" download
               className="px-3 py-1 text-sm border-2 border-dark dark:border-light bg-dark dark:bg-light text-light dark:text-dark hover:bg-light hover:text-dark dark:hover:bg-dark dark:hover:text-light transition-colors flex items-center"
             >
               <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

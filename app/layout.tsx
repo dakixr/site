@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Daniel Rodríguez Mariblanca | Portfolio",
-  description: "Personal portfolio and CV of Daniel Rodríguez Mariblanca, Senior Software Engineer",
+  description: "Daniel Rodríguez Mariblanca, senior software engineer and team lead in Luxembourg. Python, regulatory reporting automation, coding agents and developer tools.",
 };
 
 export default function RootLayout({
