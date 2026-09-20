@@ -1,7 +1,6 @@
 const skills = [
   { category: 'Languages & web', items: 'Python, SQL, JavaScript, Bash, Django, HTMX, REST APIs', evidence: 'Python frameworks, internal tools and web applications for financial services and my own projects.' },
-  { category: 'Data & infrastructure', items: 'Pandas, Polars, AWS, Docker, Terraform, Pulumi, Git, CI/CD', evidence: 'Reporting automation, data transformation and self-hosted applications.' },
-  { category: 'AI-assisted development', items: 'Codex, Claude Code, T3 Code', evidence: 'Coding agents in my development workflow, alongside hands-on implementation and review.' },
+  { category: 'Data & infrastructure', items: 'PostgreSQL, Pandas, Polars, AWS, Docker, Terraform, Pulumi, Git, CI/CD', evidence: 'Reporting automation, data transformation and self-hosted applications.' },
   { category: 'Agent engineering', items: 'Agent harnesses, context management, multi-agent orchestration, MCP', evidence: 'Built yoke, a Python coding-agent harness and SDK with persistent sessions and reusable skills.' },
 ];
 

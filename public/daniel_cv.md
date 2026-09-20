@@ -3,6 +3,8 @@
 Luxembourg · +34 610 655 215 · [dakixr@gmail.com](mailto:dakixr@gmail.com)  
 [github.com/dakixr](https://github.com/dakixr) · [site.dakixr.dev](https://site.dakixr.dev) · [LinkedIn](https://www.linkedin.com/in/daniel-rodr%C3%ADguez-mariblanca-00a26a173/)
 
+Senior software engineer building Python applications, developer tools and AI agents.
+
 ## Experience
 
 ### Senior Consultant - Deloitte, Luxembourg
@@ -10,7 +12,7 @@ April 2026-Present
 
 - Automate regulatory reporting for major clients, reducing report preparation from several hours to minutes.
 - Lead three developers: set technical direction, assign work and coordinate delivery while contributing code.
-- Mentor developers on best practices, uphold code quality and improve development workflows.
+- Lead code reviews, mentor developers and improve team development workflows.
 
 ### Senior Software Engineer - TMC, Luxembourg
 March 2023-March 2026
@@ -29,13 +31,13 @@ March 2023-March 2026
 - Contributed reusable tools, CI/CD and test suites to a shared repository used across Deloitte engineering teams.
 
 ### Business Intelligence & Software Engineer - Amazon, Luxembourg
-2022
+February 2022-February 2023; internship February-July 2022, full-time from August 2022
 
 - Launched the team's first ML forecasting solution for a $60M+ operational plan.
 - Built KPI and warehousing tools; operated analytics services with AWS CloudWatch logging, metrics and alerts.
 
-### Full-Stack Software Engineer - Vector ITC Group / Santander Bank, Spain
-2019
+### Junior Full-Stack Software Engineer - Vector ITC Group / Santander Bank, Spain
+June-July 2019
 
 - Delivered mobile app modules and secure backend systems for Santander Bank within an Agile team.
 
@@ -45,8 +47,8 @@ March 2023-March 2026
 - Built a Python coding-agent harness and SDK with file, shell and web tools, MCP integration and interchangeable LLM providers.
 - Implemented persistent sessions, context compaction, reusable skills and multi-agent orchestration.
 
-### [Ionisium](https://ionisium.es) - Django, HTMX, Celery, AWS
-- Built a document distribution SaaS used by Spanish film companies including CaballoFilms, automating personalized, watermarked delivery.
+### [Ionisium](https://ionisium.es) - Django, PostgreSQL, HTMX, Celery, AWS
+- Built a document distribution SaaS used by Spanish film companies including CaballoFilms, handling 250,000+ document deliveries across six client projects.
 
 ### [TypedJinja](https://github.com/dakixr/TypedJinja) - Python, TypeScript, LSP
 - Built Jinja2 template tooling with Python stub generation, completion, hover and go-to-definition; published on PyPI and the VS Code Marketplace.
@@ -58,13 +60,12 @@ March 2023-March 2026
 ## Technical Skills
 
 - **Languages & web:** Python, SQL, JavaScript, Bash, Django, HTMX, REST APIs
-- **Data & infrastructure:** Pandas, Polars, AWS, Docker, Terraform, Pulumi, Git, CI/CD
-- **AI-assisted development:** Codex, Claude Code, T3 Code
+- **Data & infrastructure:** PostgreSQL, Pandas, Polars, AWS, Docker, Terraform, Pulumi, Git, CI/CD
 - **Agent engineering:** Agent harnesses, context management, multi-agent orchestration, MCP
 - **Spoken languages:** English (fluent), Spanish (native)
 
 ## Education
 
-**Universidad Politécnica de Madrid**  
+**Universidad Politécnica de Madrid** · September 2017-July 2022  
 Computer Engineering; Erasmus+ exchange at Aalto University, Finland.  
 Business Administration and Management; completed the full program in four years.

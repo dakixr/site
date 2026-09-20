@@ -20,7 +20,7 @@ const experiences: Experience[] = [
     missions: [{ name: 'Technical leadership & regulatory reporting', description: [
       'Automate regulatory reporting for major clients, reducing report preparation from several hours to minutes.',
       'Lead three developers: set technical direction, assign work and coordinate delivery while contributing code.',
-      'Mentor developers on best practices, uphold code quality and improve development workflows.'
+      'Lead code reviews, mentor developers and improve team development workflows.'
     ], techStack: ['Python', 'Regulatory reporting', 'Technical leadership'] }]
   },
   {
