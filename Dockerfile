@@ -2,7 +2,7 @@
 FROM node:23-slim AS builder
 
 # Enable pnpm via Corepack
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm@10.33.0
 
 # Set working directory
 WORKDIR /app
@@ -30,7 +30,7 @@ RUN apt-get update && \
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # Enable pnpm via Corepack (for running, not building)
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm@10.33.0
 
 WORKDIR /app
 
