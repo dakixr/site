@@ -15,13 +15,14 @@ export type Project = {
 export const projects: Project[] = [
     {
       title: 'yoke', slug: 'yoke',
-      description: 'A Python coding-agent harness and SDK. Persistent sessions, context compaction and multi-agent orchestration for extended development work.',
+      description: 'A coding-agent platform built as sole developer, with a CLI, web UI, HTTP API, MCP server and Python SDK on a shared runtime and tool layer.',
       githubLink: 'https://github.com/dakixr/yoke', image: '',
-      technologies: ['Python', 'LLM agents', 'MCP', 'Developer tools'],
+      technologies: ['Python', 'FastAPI', 'MCP', 'WebSockets'],
       details: [
-        'Built a coding-agent runtime with file, shell and web tools, MCP integration and interchangeable LLM providers.',
-        'Implemented persistent sessions and context compaction so development tasks can continue across long conversations.',
-        'Added reusable skills and multi-agent orchestration to coordinate separate tasks and share working instructions.',
+        'Implemented context compaction, resumable session branching and multi-agent orchestration for extended development work.',
+        'Built interchangeable providers for Codex, Z.ai, OpenCode Go and OpenAI-compatible APIs.',
+        'Backed by 1,400+ tests and static type checks with pyright and ty. CI runs the full Python suite on Linux, focused session and HTTP checks on Windows, and browser and TypeScript contract checks.',
+        'The CLI, web UI, HTTP API and Python SDK use the agent runtime. The standalone MCP server exposes the shared tool layer without starting an agent.',
         'Integrated yoke into T3 Code and run its tools through a remote MCP service.'
       ],
     },

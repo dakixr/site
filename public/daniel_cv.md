@@ -43,9 +43,9 @@ June-July 2019
 
 ## Selected Projects
 
-### [yoke](https://github.com/dakixr/yoke) - Python, LLM agents, MCP
-- Built a Python coding-agent harness and SDK with file, shell and web tools, MCP integration and interchangeable LLM providers.
-- Implemented persistent sessions, context compaction, reusable skills and multi-agent orchestration.
+### [yoke](https://github.com/dakixr/yoke) - Python, FastAPI, MCP, WebSockets
+- Built a coding-agent platform as sole developer: CLI, web UI, HTTP API, MCP server and Python SDK on a shared runtime and tool layer.
+- Implemented context compaction, resumable session branching and multi-agent orchestration; backed by 1,400+ tests, static type checks and Linux/Windows CI.
 
 ### [Ionisium](https://ionisium.es) - Django, PostgreSQL, HTMX, Celery, AWS
 - Built a document distribution SaaS used by Spanish film companies including CaballoFilms, handling 250,000+ document deliveries across six client projects.
@@ -54,8 +54,7 @@ June-July 2019
 - Built Jinja2 template tooling with Python stub generation, completion, hover and go-to-definition; published on PyPI and the VS Code Marketplace.
 
 ### Development infrastructure - Python, Linux, Docker, Tailscale
-- Built cross-machine sync tooling for agent skills and SSH configuration, with validation, backups and recovery.
-- Run remote development and self-hosted apps with Tailscale, Docker Compose, Coolify and Linux services.
+- Built Python tools to sync agent skills and SSH config; self-host apps with Docker, Tailscale and Coolify.
 
 ## Technical Skills
 
