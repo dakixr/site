@@ -1,8 +1,8 @@
 # ---- Builder ----
-FROM node:24.22.1-bookworm-slim AS builder
+FROM node:24.22.1-trixie-slim AS builder
 
 # Enable pnpm via Corepack
-RUN npm install -g pnpm@10.33.0
+RUN npm install -g pnpm@10.34.8
 
 # Set working directory
 WORKDIR /app
@@ -17,20 +17,20 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Build the app
-RUN pnpm build
+RUN pnpm build && pnpm prune --prod && rm -rf .next/cache
 
 # ---- Runner ----
-FROM node:24.22.1-bookworm-slim AS runner
+FROM node:24.22.1-trixie-slim AS runner
 
 # Install curl and Chromium for Puppeteer
-RUN apt-get update && \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends curl chromium ca-certificates fonts-liberation && \
     rm -rf /var/lib/apt/lists/*
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-# Enable pnpm via Corepack (for running, not building)
-RUN npm install -g pnpm@10.33.0
+# Package managers are build tools; the server runs Next directly.
+RUN rm -rf /usr/local/lib/node_modules /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
 
 WORKDIR /app
 
@@ -45,4 +45,4 @@ USER node
 
 EXPOSE 3000
 
-CMD ["pnpm", "start"] 
+CMD ["node", "node_modules/next/dist/bin/next", "start", "--hostname", "0.0.0.0"] 
